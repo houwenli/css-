@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <title>测试 — </title>
+	    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> 
+		
+		<style type="text/css">
+			.ellipse {
+				background: #fb3;
+				width: 300px;
+				height: 200px;
+				border-radius: 30px 40px 50px 60px;
+			}
+			.rhomboid {
+				width: 100px;
+			    height: 50px;
+			    transform: skewX(-20deg);
+			    background: #fb3 ;
+			    margin-left: 30px ;
+			    line-height: 50px;
+			    text-align: center;
+			    color: #fff;
+			    cursor: pointer;
+			}
+			.rhombus {
+				width: 200px;
+				height: 200px;
+				margin-left: 200px;
+				transform: rotate(45deg);
+				overflow: hidden;
+			}
+			.rhombus > img {
+				max-width: 800px;
+			    transform: rotate(-45deg);
+			    margin-top: -300px;
+			    margin-left: -100px;
+			}
+			.rhombus-8 {
+				width: 200px;
+				height: 200px;
+				margin-left: 200px;
+				transform: rotate(45deg);
+				overflow: hidden;
+			}
+			.rhombus-8  img {
+				width: 200px;
+				height: 200px;
+			    transform: rotate(-45deg);
+			}
+			.trapezoid {
+				width:200px;
+				height: 80px;
+				background: #fb3 ;
+				color: #fff;
+				line-height: 80px;
+				text-align: center;
+				font-size: 20px;
+			}
+			.trapezoid1 {
+				width:200px;
+				height: 80px;
+				margin-left: 100px;
+				background: #fb3 ;
+				color: #fff;
+				line-height: 80px;
+				text-align: center;
+				font-size: 20px;
+				transform: perspective(.5em) rotateX(5deg);
+				/*border-radius: 20px;
+    			line-height: 100px;*/
+			}
+			.pie {
+				margin-left: 100px;
+				width: 100px; height: 100px;
+				border-radius: 50%;
+				background: yellowgreen;
+				background-image:linear-gradient(to right, transparent 50%, #655 0);
+			}
+			.pie::before {
+				content: '';
+				display: block;
+				margin-left: 50%;
+				height: 100%;
+				border-radius: 0 100% 100% 0 / 50%;
+				background-color: inherit;
+				transform-origin: left;
+				transform: rotate(0deg);
+
+			}
+
+
+				
+		</style>
+			
+	</head>
+	<body>
+		椭圆
+		<div class="ellipse"></div>
+		<br><br><br>
+		平行四边形
+		<div class="rhomboid">CLICK ME</div>
+		<br><br><br>
+		菱形
+		<div class="rhombus">
+			<img src="../D11Y.jpg" alt="..." />
+		</div>
+		<br><br><br>
+		八边形
+		<div class="rhombus-8">
+			<img src="../D11Y.jpg" alt="..." />
+		</div>
+		梯形
+		<div class="trapezoid">我是梯形</div>
+		<br><br><br>
+		<div class="trapezoid1">我是梯形</div>
+		<br><br><br>
+		饼图
+		<div class="pie"></div>
+
+		<script type="text/javascript">
+			
+		</script>
+
+
+	</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <title>测试 — </title>
+	    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> 
+		
+		<style type="text/css">
+			.test-pannel {
+				width:400px;
+				height:200px;
+				position: relative;
+				background-color: #000;
+			}
+			.test {
+				width:200px;
+				height:100px;
+				top:50px;
+				left:100px;
+				position: absolute;
+				border: 10px solid rgba(255,255,255,.5);
+				background: blue;
+				/*background-clip: padding-box;*/
+			}
+
+			.shadow {
+				width:200px;
+				height:100px;
+				background: yellowgreen;
+				box-shadow: 0 0 0 10px #655,0 0 0 15px deeppink,0 2px 5px 15px rgba(0,0,0,.6);
+			}
+
+			.outline{
+				width:200px;
+				height:100px;
+				background: yellowgreen;
+				border:10px dashed #655;
+				outline: 5px solid deeppink;
+				background-clip: border-box;
+			}
+
+			.position {
+				width:200px;
+				height: 100px;
+				background: url(../cele_icon.png) no-repeat #58a;
+				background-position: right 20px bottom 20px;
+			}
+
+			.origin {
+				width:200px;
+				height: 100px;
+				background: url(../cele_icon.png) no-repeat #58a;
+				background-position: right 20px bottom 20px;
+				background-origin: content-box;
+				padding: 10px;
+			}
+
+			.calc {
+				width:200px;
+				height: 100px;
+				background: url(../cele_icon.png) no-repeat #58a;
+				background-position: calc(100% - 20px) calc(100% - 20px);
+			}
+
+			.something-meaningful {
+				width: 200px;
+				height:100px;
+				background: #655;
+				padding: .8em;
+			}
+			.something-meaningful div{
+				background: tan;
+				border-radius: .8em;
+				padding: 1em;
+			}
+			.border-fillet {
+				width: 200px;
+				height: 100px;
+				background: tan;
+				border-radius: .8rem;
+				box-shadow: 0 0 0 10px #655;
+				outline: 10px solid #655;
+			}
+
+			.gradient {
+				width:200px;
+				height:100px;
+				/*background:linear-gradient(#fb3, #58a)*/
+				/*background: linear-gradient(#fb3 20%,#58a 80%);*/
+				/*background: linear-gradient(#fb3 30%, #58a 60%);
+				background-size: 100% 30px;*/
+				/*background: linear-gradient(#fb3 30%, #58a 30%);
+				background-size: 100% 30px;*/
+				background: linear-gradient(#fb3 33.3%,#58a 0, #58a 66.6%, yellowgreen 0) no-repeat;
+				background-size: 100% 45px;
+			}
+			.gradient-vertical {
+				width:200px;
+				height: 100px;
+				background: linear-gradient(to right,#fb3 50%, #58a 0);
+				background-size: 45px 100%;
+			}
+			.gradient-diagonal {
+				width:200px;
+				height:100px;
+				/*background: linear-gradient(45deg,#fb3 50%, #58a 0);
+				background-size:  100%;*/
+				/*background: linear-gradient(45deg,#fb3 25%, #58a 0, #58a 50%,#fb3 0, #fb3 75%, #58a 0);
+				background-size: 30px 30px;*/
+				/*background: repeating-linear-gradient(45deg,#fb3, #58a 15px) no-repeat;*/
+				background: repeating-linear-gradient(45deg,#fb3 0, #fb3 25%, #58a 0, #58a 50%) no-repeat;
+				background-size: 42.426406871px 42.426406871px;
+			}
+
+			.blueprint {
+				width:200px;
+				height:100px;
+				/*background: white;
+				background-image: linear-gradient(90deg,rgba(200,0,0,.5) 50%, transparent 0),linear-gradient(rgba(200,0,0,.5) 50%, transparent 0);
+				background-size: 30px 30px;*/
+				background: #58a;
+				background-image:linear-gradient(white 1px, transparent 0),linear-gradient(90deg, white 1px, transparent 0);
+				background-size: 30px 30px;
+			}
+
+			.wall {
+				width: 200px;
+				height:100px;
+				background: #58a repeat;
+				background-image:linear-gradient(white 2px, transparent 0),linear-gradient(90deg, white 2px, transparent 0),linear-gradient(hsla(0,0%,100%,.3) 1px,transparent 0),linear-gradient(90deg, hsla(0,0%,100%,.3) 1px,transparent 0);
+				background-size: 75px 75px, 75px 75px,15px 15px, 15px 15px;
+			}
+			
+			.polka {
+				width: 200px;
+				height:100px;
+				background: #655 repeat;
+				background-image: radial-gradient(tan 30%, transparent 0),radial-gradient(tan 30%, transparent 0);
+				background-size: 30px 30px;
+				background-position: 0 0,15px 15px;
+			}
+
+			.chessboard {
+				width: 200px;
+				height: 100px;
+				background:#eee;
+				background-image:linear-gradient(45deg, #bbb 25%, transparent 0,transparent 75%,#bbb 0),linear-gradient(45deg, #bbb 25%, transparent 0,transparent 75%, #bbb 0);
+				background-size: 30px 30px;
+				background-position: 0 0,15px 15px;
+			}
+
+			.cicada-stripes {
+				width: 800px;
+				height: 100px;
+				/*background: linear-gradient(90deg,#fb3 15%, #655 0, #655 40%,#ab4 0, #ab4 65%, hsl(20, 40%, 90%) 0);
+				background-size: 80px 100%;*/
+				background: hsl(20, 40%, 90%);
+				background-image:
+				linear-gradient(90deg, #fb3 10px, transparent 0),
+				linear-gradient(90deg, #ab4 20px, transparent 0),
+				linear-gradient(90deg, #655 20px, transparent 0);
+				background-size: 81px 100%, 61px 100%, 41px 100%;
+			}
+			.suduku-border-image {
+			    width: 400px;
+			    height: 100px;
+			    border: 1em double orange;
+			    -webkit-border-image: url(../sudoku.png) 27 round;
+			    border-image: url(../sudoku.png) 27 round;
+			}
+
+			.border-image {
+				width: 200px;
+				height:100px;
+				border:15px solid #ccc;
+				border-image:url(../D11Y.jpg) 30 30 repeat;
+			}
+			.vintage-envelope-origin {
+				width: 200px;
+				height:100px;
+				border:15px solid transparent;
+				background: url(../D11Y.jpg);
+				background-size: cover;
+				background-clip:  border-box;
+				background-origin: border-box;
+			}
+			.vintage-envelope {
+				width: 200px;
+				height:100px;
+				border:15px solid transparent;
+				background: linear-gradient(white, white),url(../D11Y.jpg);
+				background-size: cover;
+				background-clip: padding-box, border-box;
+				background-origin: border-box;
+			}
+		</style>
+
+	</head>
+	<body>
+		半透明背景框
+		难题工作中会遇到背景图片或颜色侵占到padding或者border上面的情况，造成不好定位
+		background-clip调整了这种行为意味着背景会被设置的值所切割
+		<div class="test-pannel">
+			<div class="test"></div>
+		</div>
+
+		多重边框
+		box-shadow方案
+		之前使用多重边框都是使用多个div嵌套来实现,box-shadow可以用,分隔加上多层效果，需要注意的是shadow是层层叠加，宽度都是以内容边开始的
+		<br><br><br><br>
+		<div class="shadow-pannel">
+			<div class="shadow"></div>
+		</div>
+		<br><br><br><br>
+		outline方案
+		<br><br><br><br>
+		<div class="outline-pannel">
+			<div class="outline"></div>
+		</div>
+
+		<br><br><br><br>
+		灵活的背景定位
+		background-position 的扩展语法方案
+		<div class="position-pannel">
+			<div class="position"></div>
+		</div>
+		background-origin 方案
+		<div class="origin-pannel">
+			<div class="origin"></div>
+		</div>
+		calc方案
+		<div class="calc-pannel">
+			<div class="calc"></div>
+		</div>
+
+		<br><br><br><br>
+		边框内圆角
+		简单的办法是用两个div，然后内层div定义圆角
+		<div class="something-meaningful">
+			<div>
+				I have a nice subtle inner rounding,
+				don't I look pretty?
+			</div>
+		</div>
+		更灵活的方案
+		<br><br>
+		<div class="border-fillet"></div>
+
+		<br><br>
+		条纹背景
+		#水平条纹
+		<div class="gradient"></div>
+		<br>
+		#垂直条纹
+		<div class="gradient-vertical"></div>
+		<br>
+		#斜向条纹
+		<div class="gradient-diagonal"></div>
+
+		<br><br>
+		复杂的背景图案
+		<div class="blueprint"></div>
+		<br>
+		墙
+		<div style="width: 300px;height:200px;background-color:#000;padding: 20px;">
+		<div class="wall" style="margin:20px auto;"></div>
+		</div>
+		<br><br>
+		波点
+		<div class="polka"></div>
+		<br><br>
+		棋盘
+		<div class="chessboard"></div>
+
+		<br><br>
+		伪随机背景
+		难题：重复平铺的几何图案很美观，但看起来可能有一些呆板。其实自然界中的事物都不是以无限平铺的方式存在的。
+		这个组合图案中第一个贴片的终点，就是各层背景图像以不同间距重复数次后再次统一对齐的点。
+		这里贴片的尺寸实际上就是所有 background-size 的最小公倍数，而 40、60 和 80的最小公倍数正是 240。
+		<div class="cicada-stripes"></div>
+
+		<br><br>
+		border-image的九宫格原理
+		<div class="suduku-border-image"></div>
+		<br><br>
+		连续的图像边框
+		<div class="border-image"></div>
+		<br>
+		原因是 background-origin 的默认值是 padding-box ，因此，图片的显示尺寸不仅取决于 padding box 的尺寸，而且被放置在了 padding box 的原点（左上角）。我们看到的实际上就是背景图片以平铺的方式蔓延到 border box 区域的效果。
+		<div class="vintage-envelope-origin"></div>
+		<br/><br/>
+		<div class="vintage-envelope"></div>
+
+		<br><br><br><br>
+	<script type="text/javascript">
+		
+	</script>
+
+
+	</body>
+</html>
